@@ -5,6 +5,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PracticeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,10 @@ route::post('user/store',[UserController::class,'store'])->name('userstore');
 route::get('user/edit/{id}',[UserController::class,'edit'])->name('useredit');
 route::post('user/update/{id}',[UserController::class,'update'])->name('userupdate');
 route::get('user/delete/{id}',[UserController::class,'destroy'])->name('userdelete');
+// Practice route
+route::get('practice/index',[PracticeController::class,'index'])->name('practicelist');
+route::get('practice/create',[PracticeController::class,'create'])->name('practicecreate');
+route::post('practice/store',[PracticeController::class,'store'])->name('practicestore');
+route::get('practice/edit/{id}',[PracticeController::class,'edit'])->name('practiceedit');
+route::post('practice/update/{id}',[PracticeController::class,'update'])->name('practiceupdate');
+route::get('practice/delete/{id}',[PracticeController::class,'destroy'])->name('practicedelete');
