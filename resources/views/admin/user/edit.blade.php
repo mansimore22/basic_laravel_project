@@ -18,25 +18,32 @@
     @include('message')
     @include('admin.navbar')
     <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">User Details</h4>
-            <a href="{{ route('userlist') }}" class="btn btn-primary">Back</a>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <h4 class="mb-0 text-start">User Edit</h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                <a href="{{ route('userlist') }}" class="btn btn-primary">Back</a>
+            </div>
         </div>
         <form action="{{route('userupdate',$user->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Make sure to include CSRF token for Laravel forms -->
             <div class="form-group">
                 <label>Name: </label>
-                <input type="text" class="form-control" placeholder="Enter Name" name="name" value="{{old('name',$user->name)}}"  required>
+                <input type="text" class="form-control" placeholder="Enter Name" name="name"
+                    value="{{old('name',$user->name)}}" required>
             </div>
             <div class="form-group">
                 <label>Email: </label>
-                <input type="text" class="form-control" placeholder="Enter Email" name="email" value="{{old('email',$user->email)}}"  required>
+                <input type="text" class="form-control" placeholder="Enter Email" name="email"
+                    value="{{old('email',$user->email)}}" required>
             </div>
             <div class="form-group">
                 <label for="image">Profile Image:</label>
                 <input type="file" name="image" class="form-control">
-                <img src="{{asset('asset/user/'.$user->image)}}" alt="" width="100px" height="80px" style="margin-top: 5px;">
+                <img src="{{asset('asset/user/'.$user->image)}}" alt="" width="100px" height="80px"
+                    style="margin-top: 5px;">
 
             </div>
             <div class="form-group">
@@ -47,6 +54,7 @@
         </form>
     </div>
 </body>
+
 </html>
 
 <script>

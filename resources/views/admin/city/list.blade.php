@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>City Table</title>
     <meta charset="utf-8">
@@ -8,15 +9,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
     @include('message')
     @include('admin.navbar')
     <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-            <h4>City List</h4>
-            <a href="{{ route('citycreate') }}" class="btn btn-primary" style="margin-bottom: 10px;">ADD</a>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <h4 class="mb-0 text-start">City List</h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                <a href="{{ route('citycreate') }}" class="btn btn-primary">ADD</a>
+            </div>
         </div>
-        <div class="table-responsive"> <!-- Added this div for responsiveness -->
+        <div class="table-responsive">
+            <!-- Added this div for responsiveness -->
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -38,12 +45,13 @@
                             <a class="btn btn-primary" href="{{route('cityedit',$value->id)}}">Edit</a>
                             <a class="btn btn-danger" href="{{route('citydelete',$value->id)}}">Delete</a>
                         </td>
-                    </tr>   
+                    </tr>
                     @endforeach
-                    
+
                 </tbody>
             </table>
         </div>
     </div>
 </body>
+
 </html>

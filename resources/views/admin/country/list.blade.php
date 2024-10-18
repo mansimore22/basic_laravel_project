@@ -12,9 +12,13 @@
     @include('message')
     @include('admin.navbar')
     <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-            <h4>Country List</h4>
-            <a href="{{ route('countrycreate') }}" class="btn btn-primary" style="margin-bottom: 10px;">ADD</a>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <h4 class="mb-0 text-start">Country List</h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                <a href="{{ route('countrycreate') }}" class="btn btn-primary">ADD</a>
+            </div>       
         </div>
         <div class="table-responsive"> <!-- Added this div for responsiveness -->
             <table class="table table-bordered">

@@ -14,9 +14,13 @@
     @include('message')
     @include('admin.navbar')
     <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-            <h4 class="mb-0">State Form</h4>
-            <a href="{{ route('statelist') }}" class="btn btn-primary">Back</a>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <h4 class="mb-0 text-start">State Form</h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                <a href="{{ route('statelist') }}" class="btn btn-primary">Back</a>
+            </div>
         </div>
         <form action="{{route('statestore')}}" method="POST">
             @csrf
@@ -26,8 +30,8 @@
                 <select class="form-control" name="country_id" required>
                     <option value="">Select Country</option>
                     @foreach ($Country as $coun)
-                    <option value="{{$coun->id}}">{{$coun->name}}</option> 
-                    @endforeach                    
+                    <option value="{{$coun->id}}">{{$coun->name}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">
@@ -38,4 +42,5 @@
         </form>
     </div>
 </body>
+
 </html>

@@ -16,8 +16,8 @@
     @include('admin.navbar')
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <h4 class="mb-0 text-start">Practice Details</h4>
+            <div class="col-lg-6 col-md-6 col-sm-6 text-start">
+                <h4 class="mb-0 ">Practice Details</h4>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 text-right">
                 <a href="{{ route('practicelist') }}" class="btn btn-primary" style="">Back</a>
