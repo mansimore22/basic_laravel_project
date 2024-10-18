@@ -43,6 +43,10 @@
                     
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center my-3">
+                {{-- {{ $Record->links() }} --}}
+                {{ $Record->links('pagination::bootstrap-4') }}
+            </div>
         </div>
     </div>
 </body>
