@@ -5,6 +5,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\PracticeController;
 
 /*
@@ -51,3 +52,11 @@ route::post('practice/store',[PracticeController::class,'store'])->name('practic
 route::get('practice/edit/{id}',[PracticeController::class,'edit'])->name('practiceedit');
 route::post('practice/update/{id}',[PracticeController::class,'update'])->name('practiceupdate');
 route::get('practice/delete/{id}',[PracticeController::class,'destroy'])->name('practicedelete');
+// Blog Route
+route::get('blog_post/index',[BlogPostController::class,'index'])->name('blogpostlist');
+route::get('blog_post/create',[BlogPostController::class,'create'])->name('blogpostcreate');
+route::post('blog_post/store',[BlogPostController::class,'store'])->name('blogpoststore');
+route::get('blog_post/edit/{id}',[BlogPostController::class,'edit'])->name('blogpostedit');
+route::post('blog_post/update/{id}',[BlogPostController::class,'update'])->name('blogpostupdate');
+route::get('blog_post/delete/{id}',[BlogPostController::class,'destroy'])->name('blogpostdelete');
+// Comment Route

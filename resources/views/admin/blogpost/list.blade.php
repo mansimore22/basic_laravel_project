@@ -2,13 +2,15 @@
 <html lang="en">
 
 <head>
-    <title>User Table</title>
+    <title>Blog Post Table</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
 </head>
 
@@ -18,10 +20,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
-                <h4 class="mb-0 text-start">User List</h4>
+                <h4 class="mb-0 text-start">Blog Post List</h4>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 text-right">
-                <a href="{{ route('usercreate') }}" class="btn btn-primary">ADD</a>
+                <a href="{{ route('blogpostcreate') }}" class="btn btn-primary">ADD</a>
             </div>
         </div>
         <div class="table-responsive">
@@ -30,10 +32,10 @@
                 <thead>
                     <tr>
                         <th style="text-align: center;">Sr. No.</th>
-                        <th style="text-align: center;">Name</th>
-                        <th style="text-align: center;">Email</th>
-                        <th style="text-align: center;">Image</th>
-                        <th style="text-align: center;">Bio</th>
+                        <th style="text-align: center;">Title</th>
+                        <th style="text-align: center;">Content</th>
+                        <th style="text-align: center;">Author Name</th>
+                        <th style="text-align: center;">Published At</th>
                         <th style="text-align: center;">Action</th>
                     </tr>
                 </thead>
@@ -41,16 +43,18 @@
                     @foreach ($Record as $value)
                     <tr>
                         <td style="text-align: center;">{{$value->id}}</td>
-                        <td style="text-align: center;">{{$value->name}}</td>
-                        <td style="text-align: center;">{{$value->email}}</td>
-                        <td style="text-align: center;">
-                            <img src="{{ asset('asset/user/' . $value->image) }}" alt="" height="50px" height="50px">
-                        </td>
-                        <td style="text-align: center;" height="50px" height="50px">{!! $value->bio !!}</td>
-                        <td style="text-align: center;">
-                            <a class="btn btn-primary" href="{{route('useredit',$value->id)}}">Edit</a>
-                            <a class="btn btn-danger" href="{{route('userdelete',$value->id)}}">Delete</a>
-                        </td>
+                        <td style="text-align: center;">{{$value->title}}</td>
+                        <td>{!! $value->content !!}</td>
+                        <td style="text-align: center;">{{$value->author_name}}</td>
+                        <td style="text-align: center;">{{$value->published_at}}</td>
+                        <td class="d-flex justify-content-between">
+                            <a class="btn btn-primary btn-sm me-1" href="{{ route('blogpostedit', $value->id) }}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="btn btn-danger btn-sm" href="{{ route('blogpostdelete', $value->id) }}">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>                        
                     </tr>
                     @endforeach
                 </tbody>

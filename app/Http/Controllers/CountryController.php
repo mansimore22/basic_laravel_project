@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CountryController extends Controller
 {
     public function index(){
-        $data['Record'] = Country::paginate(2); 
+        $data['Record'] = Country::paginate(5); 
         return view('admin.country.list',$data);
     }
     public function create(){
