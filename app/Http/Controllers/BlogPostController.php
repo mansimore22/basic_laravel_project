@@ -7,11 +7,24 @@ use Illuminate\Http\Request;
 
 class BlogPostController extends Controller
 {
-    public function index()
-    {
-        $data['Record'] = BlogPost::get();
-        return view ('admin.blogpost.list',$data);
+    public function index(Request $request)
+{
+    // Fetch the search query from the request
+    $authorName = $request->get('name');
+    // If there is a search query, filter the records by author_name
+    if (!empty($authorName)) {
+        $data['Record'] = BlogPost::where('author_name', 'LIKE', "%{$authorName}%")->get();
+    } else {
+        // Otherwise, fetch all records
+        $data['Record'] = BlogPost::paginate(5);
     }
+    return view('admin.blogpost.list', $data);
+    }
+    // public function index()
+    // {
+    //     $data['Record'] = BlogPost::get();
+    //     return view ('admin.blogpost.list',$data);
+    // }
 
     public function create()
     {

@@ -9,6 +9,8 @@
                 <li><a href="{{ route('userlist') }}">User</a></li>
                 <li><a href="{{ route('practicelist') }}">Practice</a></li>
                 <li><a href="{{ route('blogpostlist') }}">Blog Post</a></li>
+                <li><a href="{{ route('commentlist') }}">Comment</a></li>
+                <li><a href="{{ route('blogdetailslist') }}">Blog Details List</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

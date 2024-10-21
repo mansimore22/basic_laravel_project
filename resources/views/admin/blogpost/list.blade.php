@@ -26,6 +26,23 @@
                 <a href="{{ route('blogpostcreate') }}" class="btn btn-primary">ADD</a>
             </div>
         </div>
+        <form action="{{ route('blogpostlist') }}" method="GET">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Author Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter Author Name" name="name"
+                            value="{{ request()->get('name') }}">
+                    </div>
+                </div>
+                <div class="col-sm-4" style="padding-top: 25px;">
+                    <button type="submit" class="btn btn-primary" style="margin-right: 5px;">Search</button>
+                    <a href="{{ route('blogpostlist') }}" class="btn btn-danger">Reset</a>
+                </div>
+            </div>
+        </form>       
+        
+        
         <div class="table-responsive">
             <!-- Added this div for responsiveness -->
             <table class="table table-bordered">
@@ -33,7 +50,7 @@
                     <tr>
                         <th style="text-align: center;">Sr. No.</th>
                         <th style="text-align: center;">Title</th>
-                        <th style="text-align: center;">Content</th>
+                        {{-- <th style="text-align: center;">Content</th> --}}
                         <th style="text-align: center;">Author Name</th>
                         <th style="text-align: center;">Published At</th>
                         <th style="text-align: center;">Action</th>
@@ -44,7 +61,7 @@
                     <tr>
                         <td style="text-align: center;">{{$value->id}}</td>
                         <td style="text-align: center;">{{$value->title}}</td>
-                        <td>{!! $value->content !!}</td>
+                        {{-- <td>{!! $value->content !!}</td> --}}
                         <td style="text-align: center;">{{$value->author_name}}</td>
                         <td style="text-align: center;">{{$value->published_at}}</td>
                         <td class="d-flex justify-content-between">
@@ -59,6 +76,10 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center my-3">
+                {{-- {{ $Record->links() }} --}}
+                {{ $Record->links('pagination::bootstrap-4') }}
+            </div>
         </div>
     </div>
 </body>

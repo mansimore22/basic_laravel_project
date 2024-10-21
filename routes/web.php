@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StateController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\PracticeController;
@@ -12,11 +13,11 @@ use App\Http\Controllers\PracticeController;
 |--------------------------------------------------------------------------
 | Web Routes
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 // Country Route
-route::get('country/index',[CountryController::class,'index'])->name('countrylist');
+route::get('/',[CountryController::class,'index'])->name('countrylist');
 route::get('country/create',[CountryController::class,'create'])->name('countrycreate');
 route::post('country/store',[CountryController::class,'store'])->name('countrystore');
 route::get('country/edit/{id}',[CountryController::class,'edit'])->name('countryedit');
@@ -59,4 +60,12 @@ route::post('blog_post/store',[BlogPostController::class,'store'])->name('blogpo
 route::get('blog_post/edit/{id}',[BlogPostController::class,'edit'])->name('blogpostedit');
 route::post('blog_post/update/{id}',[BlogPostController::class,'update'])->name('blogpostupdate');
 route::get('blog_post/delete/{id}',[BlogPostController::class,'destroy'])->name('blogpostdelete');
+route::get('blog_post/index',[BlogPostController::class,'index'])->name('blogpostlist');
 // Comment Route
+route::get('comment/index/',[CommentController::class,'index'])->name('commentlist');
+route::get('comment/create',[CommentController::class,'create'])->name('commentcreate');
+route::post('comment/store',[CommentController::class,'store'])->name('commentstore');
+route::get('comment/edit/{id}',[CommentController::class,'edit'])->name('commentedit');
+route::post('comment/update/{id}',[CommentController::class,'update'])->name('commentupdate');
+route::get('comment/delete/{id}',[CommentController::class,'destroy'])->name('commentdelete');
+route::get('blog_comment_detail/index/',[CommentController::class,'details'])->name('blogdetailslist');

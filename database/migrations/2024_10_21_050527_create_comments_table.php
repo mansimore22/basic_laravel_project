@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('post_id'); // Create the unsigned foreign key column
             $table->foreign('post_id')->references('id')->on('blog_posts')->onDelete('cascade');
-            $table->text('context');
+            $table->text('content');
             $table->string('commenter_name');
             $table->timestamps();
         });
